@@ -14,7 +14,8 @@ export class ProductoComercialService {
     async showAllProductoComercials(): Promise<ProductoComercialI[]> {
         return await this.productoComercialModel.find({ is_active: true })
             .sort('nombre')
-            .populate('laboratorio');
+            .populate('laboratorio')
+            .populate('tipo_medicamento');
     }
 
     /**
